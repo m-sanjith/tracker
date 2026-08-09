@@ -1,0 +1,652 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+.app {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.header h1 {
+  margin-bottom: 8px;
+  font-size: 38px;
+  color: darkgoldenrod;
+}
+
+.header p {
+  color: #777;
+  font-size: 18px;
+}
+
+/* =========================
+   PRICE CARDS
+========================= */
+
+.price-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.price-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.price-card h3 {
+  margin-top: 0;
+  color: #555;
+}
+
+.price-card .price {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.price-card p {
+  color: #888;
+}
+
+/* =========================
+   LAST RECORDED
+========================= */
+
+.last-recorded {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.last-recorded span {
+  display: block;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.last-recorded strong {
+  margin: 0 10px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  margin-bottom: 35px;
+}
+
+.section > h2 {
+  margin-bottom: 20px;
+}
+
+/* =========================
+   MONTHLY HEADER
+========================= */
+
+.monthly-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.monthly-header h2 {
+  margin: 0;
+}
+
+.monthly-header select {
+  padding: 10px 15px;
+  width: 200px;
+
+  font-size: 16px;
+
+  color: #222;
+  background: #fff;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  cursor: pointer;
+  outline: none;
+}
+
+.monthly-header select option {
+  color: #222;
+  background: #fff;
+}
+
+/* =========================
+   MONTHLY CARD
+========================= */
+
+.month-card {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.month-card h3 {
+  text-align: center;
+
+  font-size: 28px;
+
+  margin-top: 0;
+  margin-bottom: 35px;
+}
+
+/* =========================
+   METAL SECTION
+========================= */
+
+.metal-section {
+  margin-top: 35px;
+  padding-top: 25px;
+
+  border-top: 1px solid #e5e5e5;
+}
+
+.metal-section:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.metal-section h4 {
+  text-align: center;
+
+  font-size: 23px;
+
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+/* =========================
+   HIGH / LOW
+========================= */
+
+.high-low-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.high-low-grid > div {
+  background: #f7f7f7;
+
+  padding: 25px 15px;
+
+  border-radius: 14px;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.high-low-grid span {
+  display: block;
+
+  color: #777;
+
+  font-size: 16px;
+}
+
+.high-low-grid strong {
+  display: block;
+
+  font-size: 24px;
+
+  color: #111;
+}
+
+.high-low-grid small {
+  display: block;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+/* =========================
+   GROWTH
+========================= */
+
+.growth {
+  margin-top: 20px;
+
+  padding: 18px 20px;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  text-align: center;
+}
+
+.growth span {
+  font-size: 17px;
+}
+
+.growth strong {
+  font-size: 21px;
+}
+
+.growth b {
+  font-size: 19px;
+}
+
+/* PROFIT */
+
+.growth.profit {
+  background: #eaf8ef;
+  color: #16803c;
+}
+
+/* LOSS */
+
+.growth.loss {
+  background: #fdecec;
+  color: #d93025;
+}
+
+/* NEUTRAL */
+
+.growth.neutral {
+  background: #f3f3f3;
+  color: #666;
+}
+
+/* =========================
+   DAILY HEADER
+========================= */
+
+.daily-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.daily-header h2 {
+  margin: 0;
+}
+
+.daily-header select {
+  padding: 10px 15px;
+
+  width: 200px;
+
+  font-size: 16px;
+
+  color: #222;
+
+  background: #fff;
+
+  border: 1px solid #ccc;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.daily-header select option {
+  color: #222;
+  background: #fff;
+}
+
+/* =========================
+   CHART
+========================= */
+
+.chart-container {
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  width: 100%;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container {
+  background: white;
+
+  border-radius: 15px;
+
+  overflow-x: auto;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  width: 100%;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 16px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #222;
+  color: white;
+}
+
+tr:hover {
+  background: #f7f7f7;
+}
+
+/* =========================
+   DAILY GROWTH COLORS
+========================= */
+
+.growth-profit {
+  color: #16803c;
+  font-weight: bold;
+}
+
+.growth-loss {
+  color: #d93025;
+  font-weight: bold;
+}
+
+.growth-neutral {
+  color: #777;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+
+  font-size: 24px;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+  text-align: center;
+
+  margin-top: 100px;
+
+  color: #c0392b;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  /* APP */
+
+  .app {
+    width: 100%;
+
+    padding: 20px 12px;
+  }
+
+  /* HEADER */
+
+  .header {
+    margin-bottom: 25px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .header p {
+    font-size: 15px;
+  }
+
+  /* PRICE CARDS */
+
+  .price-cards {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .price-card {
+    padding: 20px;
+  }
+
+  .price-card .price {
+    font-size: 28px;
+  }
+
+  /* LAST RECORDED */
+
+  .last-recorded {
+    padding: 18px;
+  }
+
+  .last-recorded strong {
+    display: block;
+
+    margin: 6px 0;
+  }
+
+  /* MONTHLY HEADER */
+
+  .monthly-header {
+    flex-direction: column;
+
+    gap: 12px;
+
+    align-items: stretch;
+  }
+
+  .monthly-header h2 {
+    text-align: center;
+  }
+
+  .monthly-header select {
+    width: 100%;
+  }
+
+  /* DAILY HEADER */
+
+  .daily-header {
+    flex-direction: column;
+
+    gap: 12px;
+
+    align-items: stretch;
+  }
+
+  .daily-header h2 {
+    text-align: center;
+  }
+
+  .daily-header select {
+    width: 100%;
+  }
+
+  /* MONTH CARD */
+
+  .month-card {
+    padding: 20px 15px;
+  }
+
+  .month-card h3 {
+    font-size: 24px;
+
+    margin-bottom: 25px;
+  }
+
+  /* METAL SECTION */
+
+  .metal-section {
+    margin-top: 25px;
+
+    padding-top: 20px;
+  }
+
+  .metal-section h4 {
+    font-size: 20px;
+
+    margin-bottom: 20px;
+  }
+
+  /* HIGH / LOW */
+
+  .high-low-grid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .high-low-grid > div {
+    padding: 20px;
+  }
+
+  .high-low-grid strong {
+    font-size: 22px;
+  }
+
+  /* GROWTH */
+
+  .growth {
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 15px;
+  }
+
+  .growth span {
+    font-size: 15px;
+  }
+
+  .growth strong {
+    font-size: 20px;
+  }
+
+  .growth b {
+    font-size: 18px;
+  }
+
+  /* CHART */
+
+  .chart-container {
+    padding: 10px;
+
+    overflow-x: auto;
+  }
+
+  /* TABLE */
+
+  .table-container {
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /*
+     Keep table readable.
+     User can swipe horizontally.
+  */
+
+  table {
+    min-width: 850px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+  }
+
+  /* LOADING */
+
+  .loading {
+    padding: 20px;
+
+    text-align: center;
+
+    font-size: 20px;
+  }
+
+  /* ERROR */
+
+  .error {
+    padding: 20px;
+
+    margin-top: 50px;
+  }
+}
