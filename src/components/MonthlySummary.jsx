@@ -80,7 +80,7 @@ export default function MonthlySummary({ monthly }) {
 
       <div className="monthly-header">
 
-        <h2>Monthly High / Low</h2>
+        <h2>Monthly High Report</h2>
 
         <select
           value={currentMonth}
