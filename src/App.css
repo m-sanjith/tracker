@@ -509,11 +509,89 @@
   letter-spacing: -0.5px;
 }
 
-/* Modern Select input */
+/* Modern Select input & Filter Dropdown Group */
+.filter-dropdowns-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .custom-select-wrap {
   position: relative;
   display: inline-block;
-  min-width: 200px;
+  min-width: 140px;
+}
+
+.custom-select-wrap.select-month {
+  min-width: 150px;
+}
+
+.custom-select-wrap.select-year {
+  min-width: 110px;
+}
+
+/* OUT OF RANGE EMPTY STATE */
+.out-of-range-card {
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 18px;
+  padding: 44px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.out-of-range-icon {
+  font-size: 36px;
+  background: #f8fafc;
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 4px;
+}
+
+.out-of-range-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.out-of-range-card p {
+  color: #64748b;
+  font-size: 14px;
+  max-width: 460px;
+  line-height: 1.5;
+}
+
+.reset-latest-btn {
+  margin-top: 8px;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.reset-latest-btn:hover {
+  background: #d4af37;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
 }
 
 .modern-select {
@@ -1300,12 +1378,27 @@
     font-size: 20px;
   }
 
-  .custom-select-wrap {
+  .filter-dropdowns-group {
     width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+
+  .custom-select-wrap.select-month {
+    flex: 1.8;
+    min-width: 0;
+  }
+
+  .custom-select-wrap.select-year {
+    flex: 1.2;
+    min-width: 0;
   }
 
   .history-controls-bar {
     width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
   }
 
   .view-mode-toggle {

@@ -15,10 +15,8 @@ export default function App() {
   // ==================================================
   // FETCH DASHBOARD DATA
   // ==================================================
-  const fetchData = useCallback((isManual = false) => {
-    if (isManual) setRefreshing(true);
-    else setLoading(true);
-
+  const handleRefresh = useCallback(() => {
+    setRefreshing(true);
     fetch("https://tracker-wdva.onrender.com/api/dashboard")
       .then((response) => {
         if (!response.ok) {
@@ -29,19 +27,37 @@ export default function App() {
       .then((result) => {
         setData(result);
         setError(null);
-        setLoading(false);
         setRefreshing(false);
       })
       .catch((err) => {
-        console.error("Dashboard error:", err);
+        console.error("Dashboard refresh error:", err);
         setError(err.message);
-        setLoading(false);
         setRefreshing(false);
       });
   }, []);
 
   useEffect(() => {
-    fetchData();
+    let isMounted = true;
+
+    fetch("https://tracker-wdva.onrender.com/api/dashboard")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch dashboard data from server.");
+        }
+        return response.json();
+      })
+      .then((result) => {
+        if (!isMounted) return;
+        setData(result);
+        setError(null);
+        setLoading(false);
+      })
+      .catch((err) => {
+        if (!isMounted) return;
+        console.error("Dashboard error:", err);
+        setError(err.message);
+        setLoading(false);
+      });
 
     // Scroll listener for back-to-top button
     const handleScroll = () => {
@@ -49,8 +65,11 @@ export default function App() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [fetchData]);
+    return () => {
+      isMounted = false;
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -81,7 +100,7 @@ export default function App() {
           <div className="error-icon">⚠️</div>
           <h2>Unable to Connect to Live Feed</h2>
           <p>{error || "No dashboard data currently available."}</p>
-          <button className="retry-btn" onClick={() => fetchData(true)}>
+          <button className="retry-btn" onClick={() => { setLoading(true); handleRefresh(); }}>
             🔄 Try Reconnecting
           </button>
         </div>
@@ -124,7 +143,7 @@ export default function App() {
 
             <button
               className={`refresh-btn ${refreshing ? "spinning" : ""}`}
-              onClick={() => fetchData(true)}
+              onClick={handleRefresh}
               aria-label="Refresh price feed"
               title="Click to refresh market rates"
               disabled={refreshing}
